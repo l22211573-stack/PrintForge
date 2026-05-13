@@ -1,0 +1,212 @@
+{
+  "marketplace": "PrintForge",
+  "currency": "MXN",
+  "products": [
+    {
+      "id": 1,
+      "nombre": "Creality Ender 3 V3 SE",
+      "descripcion": "La puerta de entrada perfecta al mundo 3D. Nivelación automática y velocidad de 250mm/s para que tus ideas cobren vida en tiempo récord.",
+      "precio": 4599.00,
+      "stock": 15,
+      "categoria": "Impresora FDM",
+      "imagen": "https://via.placeholder.com/400x400.png?text=Ender+3+V3+SE"
+    },
+    {
+      "id": 2,
+      "nombre": "Anycubic Photon Mono M5s",
+      "descripcion": "Resolución 12K para detalles que desafían la vista. Ideal para miniaturas de alta precisión y joyería técnica.",
+      "precio": 12850.00,
+      "stock": 8,
+      "categoria": "Impresora Resina",
+      "imagen": "https://via.placeholder.com/400x400.png?text=Photon+Mono+M5s"
+    },
+    {
+      "id": 3,
+      "nombre": "Bambu Lab P1S",
+      "descripcion": "Velocidad extrema y fiabilidad industrial. La impresora que 'simplemente funciona' desde que la sacas de la caja.",
+      "precio": 19400.00,
+      "stock": 5,
+      "categoria": "Impresora FDM",
+      "imagen": "https://via.placeholder.com/400x400.png?text=Bambu+Lab+P1S"
+    },
+    {
+      "id": 4,
+      "nombre": "Filamento PLA Pro - Negro Carbón",
+      "descripcion": "Acabado mate premium y cero warping. Formulado para una adhesión de capa superior y resistencia mecánica mejorada.",
+      "precio": 480.00,
+      "stock": 120,
+      "categoria": "Filamento",
+      "imagen": "https://via.placeholder.com/400x400.png?text=PLA+Negro"
+    },
+    {
+      "id": 5,
+      "nombre": "Filamento PETG Translucido - Azul Glaciar",
+      "descripcion": "La resistencia del ABS con la facilidad del PLA. Ideal para piezas funcionales que requieren durabilidad y estilo.",
+      "precio": 550.00,
+      "stock": 45,
+      "categoria": "Filamento",
+      "imagen": "https://via.placeholder.com/400x400.png?text=PETG+Azul"
+    },
+    {
+      "id": 6,
+      "nombre": "Resina UV Standard - Gris Espacial 1kg",
+      "descripcion": "Baja contracción y alta velocidad de curado. Captura cada micro-detalle con un acabado suave y profesional.",
+      "precio": 890.00,
+      "stock": 30,
+      "categoria": "Resina",
+      "imagen": "https://via.placeholder.com/400x400.png?text=Resina+Gris"
+    },
+    {
+      "id": 7,
+      "nombre": "Boquilla de Acero Endurecido 0.4mm",
+      "descripcion": "Diseñada para filamentos abrasivos como fibra de carbono y madera. Larga vida útil para impresiones intensas.",
+      "precio": 320.00,
+      "stock": 200,
+      "categoria": "Refacciones",
+      "imagen": "https://via.placeholder.com/400x400.png?text=Boquilla+Acero"
+    },
+    {
+      "id": 8,
+      "nombre": "Plataforma PEI Magnética Texturizada",
+      "descripcion": "Adiós al pegamento. Tus piezas se adhieren perfectamente al calentar y se desprenden solas al enfriar.",
+      "precio": 650.00,
+      "stock": 60,
+      "categoria": "Refacciones",
+      "imagen": "https://via.placeholder.com/400x400.png?text=Cama+PEI"
+    },
+    {
+      "id": 9,
+      "nombre": "Kit Hotend All-Metal",
+      "descripcion": "Sube la temperatura hasta los 300°C. Desbloquea la capacidad de imprimir Nylon y Policarbonato sin límites.",
+      "precio": 1150.00,
+      "stock": 25,
+      "categoria": "Refacciones",
+      "imagen": "https://via.placeholder.com/400x400.png?text=Hotend+Kit"
+    },
+    {
+      "id": 10,
+      "nombre": "Filamento TPU Flexible - Rojo Fuego",
+      "descripcion": "Elasticidad y resistencia al impacto. Perfecto para fundas, llantas de drones y juntas herméticas.",
+      "precio": 720.00,
+      "stock": 18,
+      "categoria": "Filamento",
+      "imagen": "https://via.placeholder.com/400x400.png?text=TPU+Rojo"
+    },
+    {
+      "id": 11,
+      "nombre": "Sensor de Filamento Inteligente",
+      "descripcion": "No pierdas más impresiones. Detecta atascos y falta de material, pausando tu trabajo automáticamente.",
+      "precio": 450.00,
+      "stock": 40,
+      "categoria": "Refacciones",
+      "imagen": "https://via.placeholder.com/400x400.png?text=Sensor+Filamento"
+    },
+    {
+      "id": 12,
+      "nombre": "Extrusor Directo Sprite Pro",
+      "descripcion": "Potencia de empuje constante para evitar sub-extrusión. El upgrade definitivo para tu serie Ender.",
+      "precio": 2100.00,
+      "stock": 12,
+      "categoria": "Refacciones",
+      "imagen": "https://via.placeholder.com/400x400.png?text=Extrusor+Sprite"
+    },
+    {
+      "id": 13,
+      "nombre": "Filamento Rainbow Silk PLA",
+      "descripcion": "Crea piezas con un degradado multicolor y brillo sedoso. Cada impresión es una pieza de arte única.",
+      "precio": 680.00,
+      "stock": 50,
+      "categoria": "Filamento",
+      "imagen": "https://via.placeholder.com/400x400.png?text=Silk+Rainbow"
+    },
+    {
+      "id": 14,
+      "nombre": "Alcohol Isopropílico 99% - 1 Litro",
+      "descripcion": "Limpieza profunda para tus impresiones de resina y desengrasado total de camas de impresión.",
+      "precio": 195.00,
+      "stock": 100,
+      "categoria": "Mantenimiento",
+      "imagen": "https://via.placeholder.com/400x400.png?text=IPA+99"
+    },
+    {
+      "id": 15,
+      "nombre": "Kit de Herramientas Premium Forge",
+      "descripcion": "Espátulas, pinzas, limpiadores de boquilla y cortadores. Todo lo que un maker necesita en un estuche rígido.",
+      "precio": 850.00,
+      "stock": 35,
+      "categoria": "Accesorios",
+      "imagen": "https://via.placeholder.com/400x400.png?text=Tool+Kit"
+    },
+    {
+      "id": 16,
+      "nombre": "Elegoo Saturn 3 Ultra",
+      "descripcion": "Impresión de gran formato con precisión láser. El gigante de la resina para producciones a escala.",
+      "precio": 15900.00,
+      "stock": 4,
+      "categoria": "Impresora Resina",
+      "imagen": "https://via.placeholder.com/400x400.png?text=Saturn+3+Ultra"
+    },
+    {
+      "id": 17,
+      "nombre": "Tubo Bowden Capricorn XS",
+      "descripcion": "Tolerancias internas ultra-ajustadas para un control preciso del filamento. Reduce drásticamente los hilos (stringing).",
+      "precio": 380.00,
+      "stock": 80,
+      "categoria": "Refacciones",
+      "imagen": "https://via.placeholder.com/400x400.png?text=Capricorn+Tube"
+    },
+    {
+      "id": 18,
+      "nombre": "Filamento ABS+ Reforzado - Gris Industrial",
+      "descripcion": "Resistencia térmica extrema. Ideal para piezas mecánicas que vivirán bajo el sol o cerca de motores.",
+      "precio": 590.00,
+      "stock": 25,
+      "categoria": "Filamento",
+      "imagen": "https://via.placeholder.com/400x400.png?text=ABS+Plus"
+    },
+    {
+      "id": 19,
+      "nombre": "Ventilador de Capa 5015 Soplador",
+      "descripcion": "Enfriamiento potente para puentes perfectos y voladizos sin soportes. Operación silenciosa de 24V.",
+      "precio": 150.00,
+      "stock": 150,
+      "categoria": "Refacciones",
+      "imagen": "https://via.placeholder.com/400x400.png?text=Ventilador+5015"
+    },
+    {
+      "id": 20,
+      "nombre": "Laca Adhesiva PrintFix",
+      "descripcion": "La solución definitiva contra el desprendimiento de piezas. Fácil de aplicar y se limpia con agua.",
+      "precio": 280.00,
+      "stock": 90,
+      "categoria": "Mantenimiento",
+      "imagen": "https://via.placeholder.com/400x400.png?text=PrintFix+Laca"
+    }
+  ],
+  "digital_assets": [
+    {
+      "id": 101,
+      "nombre": "Modelo STL: 'Blink Warrior' Hero",
+      "descripcion": "Archivo digital premium optimizado para impresión en resina. Incluye soportes pre-configurados y base temática del universo Blink Galaxy.",
+      "precio": 250.00,
+      "formato": ".STL / .OBJ",
+      "imagen": "https://via.placeholder.com/400x400.png?text=Blink+Warrior+STL"
+    },
+    {
+      "id": 102,
+      "nombre": "Modelo STL: Nave 'Star-Leap' Explorer",
+      "descripcion": "Réplica digital a escala de la icónica nave de Blink Galaxy. Diseño modular que no requiere soportes internos en impresoras FDM.",
+      "precio": 420.00,
+      "formato": ".STL",
+      "imagen": "https://via.placeholder.com/400x400.png?text=Star-Leap+Ship"
+    },
+    {
+      "id": 103,
+      "nombre": "Pack: Criaturas del Vacío (3 Variantes)",
+      "descripcion": "Colección de enemigos clásicos de Blink Galaxy. Archivos de alta fidelidad con texturas esculpidas a mano para un realismo asombroso.",
+      "precio": 600.00,
+      "formato": ".STL",
+      "imagen": "https://via.placeholder.com/400x400.png?text=Void+Creatures+Pack"
+    }
+  ]
+}

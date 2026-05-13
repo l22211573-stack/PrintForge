@@ -1,0 +1,17 @@
+
+REPORTE DE USO DE IA - GENERACIÓN DE DATOS Y COPYWRITING
+Proyecto: PrintForge
+
+
+Para la generación rápida y realista del catálogo de productos y la integración del Bonus Web3, se utilizó el modelo Gemini de Google con los siguientes prompts:
+
+-PROMPT 1 (Generación de JSON y Estructura Base) ---
+"Actúa como generador de datos y Copywriter. Estoy creando un marketplace de impresión 3D llamado PrintForge. Necesito que me generes un JSON con 20 productos de prueba y 3 productos digitales que sean modelos 3D de personajes del juego Blink Galaxy."
+
+-PROMPT 2 (Refinamiento del modelo de negocio) ---
+"Ajusta el JSON y genera el código SQL compatible con MariaDB considerando la arquitectura híbrida (físico/digital) para que el carrito no cobre envío en los modelos de Blink Galaxy."
+
+---RESULTADO OBTENIDO---
+- Array JSON con 23 productos categorizados.
+- Script SQL completo para el despliegue en la Raspberry Pi.
+- Textos de copywriting optimizados para e-commerce.

@@ -14,7 +14,7 @@ PrintForge es un marketplace de impresión 3D montado en una Raspberry Pi 4. Dis
 4. **Acceso:** Entrar desde cualquier dispositivo en la misma red a la IP de la Raspberry Pi.
 
 ---
-## 👥 Roles y Responsabilidades Técnicas
+## 👥 Trabajo en equipo: Roles y Responsabilidades Técnicas
 
 ### 1. Axel Vallejo – Arquitecto Backend y Seguridad
 * **Lógica de Negocio:** Programó validadores en PHP para distinguir entre productos físicos y activos digitales (STL).

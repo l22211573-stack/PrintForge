@@ -12,3 +12,26 @@ PrintForge es un marketplace de impresión 3D montado en una Raspberry Pi 4. Dis
 2. **Base de Datos:** Importar el archivo `database.sql` en MariaDB (`sudo mysql -u root -p`).
 3. **Servidor Web:** Mover los archivos a `/var/www/html/printforge`.
 4. **Acceso:** Entrar desde cualquier dispositivo en la misma red a la IP de la Raspberry Pi.
+
+---
+## 👥 Roles y Responsabilidades Técnicas
+
+### 1. Axel Vallejo – Arquitecto Backend y Seguridad
+* **Lógica de Negocio:** Programó validadores en PHP para distinguir entre productos físicos y activos digitales (STL).
+* **Seguridad:** Implementó `password_hash()` con BCRYPT y manejo de sesiones seguras.
+
+### 2. Francisco Maldonado – DBA (Administrador de Base de Datos)
+* **Estructura:** Diseñó el esquema en 3ra Forma Normal para evitar redundancia.
+* **Integridad:** Implementó Llaves Foráneas y lógica de actualización automática de stock.
+
+### 3. Ernesto Rivera – Lead Frontend y UX/UI
+* **Interactividad:** Consumo de API mediante Fetch JS para una carga dinámica de productos.
+* **Diseño:** Interfaz responsiva (Mobile First) con Grid y Flexbox.
+
+### 4. Jesús Lizárraga  – Ingeniero de Hardware e IoT
+* **Conectividad:** Configuración de la Raspberry Pi Pico W como cliente HTTP.
+* **Hardware:** Programó la respuesta física de indicadores ante nuevos pedidos en el servidor.
+
+### 5. Angeles Gonzalez – QA y Documentación
+* **Pruebas:** Ejecución de testing End-to-End para validación de flujos de compra.
+* **Technical Writing:** Redacción de manuales técnicos y guía de instalación del entorno.

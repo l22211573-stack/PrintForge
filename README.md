@@ -35,3 +35,12 @@ PrintForge es un marketplace de impresión 3D montado en una Raspberry Pi 4. Dis
 ### 5. Angeles Gonzalez – QA y Documentación
 * **Pruebas:** Ejecución de testing End-to-End para validación de flujos de compra.
 * **Technical Writing:** Redacción de manuales técnicos y guía de instalación del entorno.
+
+---
+## 🎨 Creatividad e Innovación
+
+Para este proyecto, decidimos implementar soluciones que van más allá de un e-commerce tradicional:
+
+1. **Modelo de Negocio Híbrido:** Implementación de un sistema capaz de gestionar simultáneamente productos físicos (hardware) y productos digitales (archivos STL) con flujos de entrega diferenciados.
+2. **Branding de Ecosistema Real:** Integración con el universo "Blink Galaxy", utilizando modelos y conceptos de un entorno de gaming/Web3 real para dar coherencia visual y comercial.
+3. **Notificaciones de Hardware (IoT):** Uso de la Raspberry Pi Pico W como dispositivo de alerta temprana, notificando físicamente al equipo de manufactura cuando se registra una transacción en el backend.

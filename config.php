@@ -1,10 +1,10 @@
 <?php
 // config.php
-$host = '127.0.0.1';
+$host = 'localhost'; // Mejor 'localhost' en Linux para usar sockets
 $db   = 'marketplace';
-$user = 'root'; 
-$pass = '';     
-$port = '3307'; // <-- EL PUERTO QUE ACABAMOS DE CONFIGURAR
+$user = 'mp_user';   // Tu usuario de la base de datos
+$pass = 'gotzugg';   // Tu contraseña segura
+$port = '3306';      // <-- EL PUERTO REAL DE MARIADB EN LA RASPBERRY
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset;port=$port";

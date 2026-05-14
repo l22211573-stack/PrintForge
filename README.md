@@ -289,7 +289,7 @@ Este componente eleva el proyecto de una aplicación web a un **sistema físico-
 <div align="center">
 **Construido con 🔥 durante el Hackathon TecNM × SOREDI**
  
-*Equipo GAFCG — PrintForge © 2025*
+*Equipo GAFCG — PrintForge © 2026*
  
 [![GitHub](https://img.shields.io/badge/Ver_Repositorio-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/l22211573-stack/PrintForge)
  

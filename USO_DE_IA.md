@@ -1,20 +1,29 @@
-Reporte de Uso de Inteligencia Artificial - PrintForge
+# 🤖 Reporte Técnico: Integración de Inteligencia Artificial en PrintForge
 
-Este proyecto integró **Gemini 3 Flash** como asistente de desarrollo para optimizar los tiempos de entrega y asegurar la calidad del código y la documentación. A continuación, se detallan las áreas donde la IA fue fundamental:
+En el marco de las 24 horas del **Hackathon TecNM × SOREDI**, el equipo GAFCG adoptó **Gemini 3 Flash** no solo como una herramienta de consulta, sino como un elemento fundamental de nuestra metodología de desarrollo (Pair-Programming con IA). 
 
-1. Ingeniería de Prompts para Datos
-Generación de Catálogo: Se utilizaron prompts estructurados para generar un archivo `productos.json` con 23 artículos coherentes, incluyendo categorías híbridas (físicas y digitales), precios y descripciones técnicas.
-Estructura SQL: La IA asistió en la creación del esquema de base de datos inicial, sugiriendo relaciones entre tablas (`JOINs`) y tipos de datos óptimos para MariaDB.
+Su implementación estratégica nos permitió delegar tareas repetitivas, acelerar la toma de decisiones arquitectónicas y enfocar el esfuerzo humano en la integración de hardware y la lógica de negocio. A continuación, detallamos la aplicación de la IA en las diferentes capas del proyecto:
 
-2. Soporte en Lógica de Negocio
-Algoritmo de Stock: Se consultó a la IA para definir la lógica de actualización de inventario, asegurando que el sistema descontara productos automáticamente al procesar una venta.
-Seguridad: La IA proporcionó las mejores prácticas para el uso de `password_hash()` en PHP, garantizando que el sistema cumpliera con estándares modernos de ciberseguridad.
+### 1. Ingeniería de Prompts para Datos y Modelado SQL
+En un marketplace, contar con datos de prueba realistas es vital para evaluar la interfaz y el rendimiento.
+* **Generación del Catálogo Híbrido:** Mediante prompts estructurados con parámetros específicos, la IA generó un archivo `productos.json` completo con 23 artículos listos para producción. Este catálogo incluyó una mezcla coherente de hardware físico (impresoras, refacciones) y activos digitales (modelos STL de Blink Galaxy Forge), incluyendo precios escalados, niveles de stock y descripciones técnicas detalladas. Esto nos ahorró horas de captura manual.
+* **Arquitectura de Base de Datos:** Gemini nos asistió en el diseño inicial del esquema relacional para MariaDB. Nos proporcionó recomendaciones sobre los tipos de datos más eficientes para el almacenamiento en la Raspberry Pi, así como la correcta estructuración de llaves foráneas (`JOINs`) para mantener la integridad referencial entre las tablas de `usuarios`, `productos`, `pedidos` y `detalle_pedido`.
 
-3. Documentación y Comunicación
-README Profesional: El contenido técnico de la documentación fue estructurado con ayuda de IA para mejorar la claridad y el impacto visual mediante Markdown.
-Soporte de Presentación: Generación de la estructura del pitch y guion técnico para la demostración en vivo.
+### 2. Soporte Avanzado en Lógica de Negocio y Ciberseguridad
+El backend de PrintForge debía ser ligero pero extremadamente seguro y funcional.
+* **Algoritmos de Inventario:** Consultamos a la IA para refinar la lógica transaccional y los Triggers de actualización de inventario. Esto nos aseguró que el sistema descontara automáticamente los productos al procesar una venta, evitando problemas de concurrencia o ventas fantasma de artículos agotados.
+* **Estándares de Seguridad Backend:** En lugar de implementar sistemas de encriptación obsoletos, la IA nos guio en la aplicación de las mejores prácticas de ciberseguridad modernas. Implementamos el uso nativo de `password_hash()` en PHP utilizando el algoritmo BCRYPT, garantizando que las credenciales de los usuarios estén protegidas contra ataques de fuerza bruta.
 
-4. Decisiones Asistidas
-La IA sugirió la arquitectura para la integración de la Raspberry Pi Pico W, recomendando el uso de una arquitectura de "cliente-servidor" mediante peticiones HTTP para que el hardware reaccionara a los pedidos de la base de datos.
+### 3. Decisiones Arquitectónicas Asistidas (IoT y Hardware)
+El mayor reto técnico del proyecto fue sacar el software de la pantalla y llevarlo al mundo físico.
+* **Arquitectura Cliente-Servidor para la Raspberry Pi Pico W:** Para lograr nuestro "Factor WOW", necesitábamos que la Pico W reaccionara en la vida real cuando se hiciera una compra en la web. La IA analizó nuestro entorno y sugirió descartar protocolos pesados, recomendando en su lugar una arquitectura mediante peticiones HTTP. De este modo, la Pico W actúa como un cliente que monitorea activamente la base de datos y detona notificaciones físicas sin sobrecargar el servidor Apache.
 
-> Nota: Todo el código y las sugerencias proporcionadas por la IA fueron revisados, probados y ajustados manualmente por los integrantes del equipo para asegurar su correcto funcionamiento en el entorno de producción de la Raspberry Pi.
+### 4. Technical Writing y Comunicación Estratégica
+Un código excelente necesita una presentación excelente.
+* **Documentación (README):** Utilizamos la IA para estructurar y dar formato profesional a nuestra documentación técnica. Nos ayudó a aplicar correctamente la sintaxis de Markdown, integrar insignias visuales (badges) y organizar las instrucciones de despliegue para que cualquier desarrollador pueda montar el proyecto en minutos.
+* **Soporte de Pitch para el Jurado:** Gemini fue clave para estructurar la narrativa de nuestra demostración en vivo. Nos ayudó a redactar un guion que resalta la propuesta de valor híbrida, la integración del ecosistema Web3 de SOREDI y la demostración de IoT, optimizando nuestro tiempo para los 3 minutos de presentación.
+
+---
+
+> ⚠️ **Nota de Integridad Técnica y Calidad:**
+> En GAFCG entendemos a la Inteligencia Artificial como un copiloto de desarrollo, no como un sustituto del criterio de ingeniería. **Absolutamente todo el código, las consultas SQL, las configuraciones de red y las sugerencias arquitectónicas proporcionadas por Gemini fueron analizadas, auditadas y ajustadas manualmente por los integrantes del equipo.** Nos aseguramos rigurosamente de que cada línea de código fuera segura y se ejecutara con un rendimiento óptimo en el entorno físico y limitado de nuestra Raspberry Pi 4.

@@ -3,7 +3,7 @@ session_start();
 require 'config.php';
 
 try {
-    $stmt = $pdo->query("SELECT id, nombre, categoria, imagen, precio, stock, descripcion, tipo, formato_digital FROM productos");
+    $stmt = $pdo->query("SELECT id, nombre, categoria, imagen, imagen_url, precio, stock, descripcion, tipo, formato_digital FROM productos");
     $productos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     die("Error al conectar con la base de datos: " . $e->getMessage());
@@ -63,6 +63,8 @@ function pf_render_product_card(array $p): void
 {
     $isBlink  = $p['categoria'] === 'Blink Galaxy Forge';
     $isOuter  = $p['categoria'] === 'Outer Ring';
+    // Detectar qué imagen usar (la de Frank o la vieja)
+    $imgReal = !empty($p['imagen_url']) ? $p['imagen_url'] : $p['imagen'];
     $cardClass = 'product-card';
     $btnClass  = 'add-to-cart-btn';
     if ($isBlink) { $cardClass .= ' blink-card'; $btnClass .= ' blink-btn'; }
@@ -112,7 +114,7 @@ function pf_render_product_card(array $p): void
     $qvData = htmlspecialchars(json_encode([
         'id'       => $p['id'],
         'nombre'   => $p['nombre'],
-        'imagen'   => $p['imagen'],
+        'imagen'   => $imgReal,
         'precio'   => pf_fmt_mxn((float)$p['precio']),
         'desc'     => $p['descripcion'],
         'rating'   => $rating,
@@ -126,7 +128,7 @@ function pf_render_product_card(array $p): void
     echo '<article class="' . pf_escape($cardClass) . '" data-precio="' . $p['precio'] . '" data-categoria="' . pf_escape((string)$p['categoria']) . '" data-stock="' . $stock . '" data-tipo="' . pf_escape($tipo) . '">';
     echo '<span class="chip chip-categoria">' . pf_escape((string)$p['categoria']) . '</span>';
     echo '<div class="product-image">';
-    echo '<img src="' . pf_escape((string)$p['imagen']) . '" alt="' . pf_escape((string)$p['nombre']) . '" loading="lazy" width="800" height="600">';
+    echo '<img src="' . pf_escape((string)$imgReal) . '" alt="' . pf_escape((string)$p['nombre']) . '" loading="lazy" width="800" height="600">';
     echo '<button type="button" class="quick-view-btn" data-product=\'' . $qvData . '\'>👁 Vista rápida</button>';
     echo '</div>';
     echo '<div class="product-info">';
@@ -139,7 +141,7 @@ function pf_render_product_card(array $p): void
     echo $formato;
     echo '<p class="product-delivery">' . pf_escape($delivery) . '</p>';
     echo '<div class="card-actions">';
-    echo '<button type="button" class="' . pf_escape($btnClass) . '" data-id="' . pf_escape((string)$p['id']) . '" data-tipo="' . pf_escape($tipo) . '" data-nombre="' . pf_escape((string)$p['nombre']) . '" data-precio="' . pf_fmt_mxn((float)$p['precio']) . '" data-img="' . pf_escape((string)$p['imagen']) . '"><span>Añadir al carrito</span></button>';
+    echo '<button type="button" class="' . pf_escape($btnClass) . '" data-id="' . pf_escape((string)$p['id']) . '" data-tipo="' . pf_escape($tipo) . '" data-nombre="' . pf_escape((string)$p['nombre']) . '" data-precio="' . pf_fmt_mxn((float)$p['precio']) . '" data-img="' . pf_escape((string)$imgReal) . '"><span>Añadir al carrito</span></button>';
     echo '</div>';
     echo '</div></article>';
 }

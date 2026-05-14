@@ -12,8 +12,8 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![CSS3](https://img.shields.io/badge/CSS3-Mobile_First-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![Apache](https://img.shields.io/badge/Apache-2.4-D22128?style=for-the-badge&logo=apache&logoColor=white)
-![Raspberry Pi](https://img.shields.io/badge/Raspberry_Pi_4-Server-A22846?style=for-the-badge&logo=raspberry-pi&logoColor=white)
-![IoT](https://img.shields.io/badge/Pico_W-IoT_Client-00B4FF?style=for-the-badge&logo=raspberry-pi&logoColor=white)
+![Raspberry Pi](https://img.shields.io/badge/Raspberry_Pi_4-Servidor_Autónomo-A22846?style=for-the-badge&logo=raspberry-pi&logoColor=white)
+![Nodo](https://img.shields.io/badge/Nodo_Híbrido-Descentralizado-00B4FF?style=for-the-badge&logo=raspberry-pi&logoColor=white)
 ![Web3](https://img.shields.io/badge/Web3-SOREDI_Ready-F16822?style=for-the-badge&logo=ethereum&logoColor=white)
  
 [![Estado](https://img.shields.io/badge/Estado-Hackathon_Live-brightgreen?style=flat-square)](http://192.168.10.3/printforge)
@@ -32,7 +32,7 @@
 - [Features Principales](#-features-principales)
 - [Estructura del Proyecto](#-estructura-del-proyecto)
 - [Instrucciones de Despliegue](#-instrucciones-de-despliegue)
-- [Integración IoT](#-integración-iot--raspberry-pi-pico-w)
+- [Servidor Autónomo — Raspberry Pi 4](#%EF%B8%8F-servidor-autónomo--raspberry-pi-4)
 - [Integración SOREDI / Web3](#-integración-soredi--web3-blink-galaxy-forge)
 - [Equipo GAFCG](#-equipo-gafcg)
 ---
@@ -54,7 +54,7 @@
 └─────────────────────────────────────────────────────────┘
 ```
  
-> **Misión:** Conectar el hardware maker físico con el ecosistema de activos digitales del metaverso Web3, todo orquestado desde una Raspberry Pi 4.
+> **Misión:** Conectar el hardware maker físico con el ecosistema de activos digitales del metaverso Web3, todo orquestado desde una Raspberry Pi 4 operando como servidor web autónomo y nodo híbrido descentralizado — sin depender de ningún proveedor cloud.
  
 ---
  
@@ -64,6 +64,7 @@
                          ┌───────────────────┐
   Usuario / Navegador ──▶│  Apache + PHP 8   │◀── Sin Frameworks
                          │  Raspberry Pi 4   │    Máxima ligereza
+                         │  Servidor Autónomo│    Sin dependencia cloud
                          └────────┬──────────┘
                                   │
                     ┌─────────────▼──────────────┐
@@ -75,10 +76,10 @@
               ┌───────────────────┴───────────────────┐
               │                                       │
     ┌─────────▼─────────┐                 ┌──────────▼────────┐
-    │  JS Nativo (SPA)  │                 │  Raspberry Pi     │
-    │  Fetch API        │                 │  Pico W (IoT)     │
-    │  CSS Grid/Flex    │                 │  Alerta Física    │
-    └───────────────────┘                 │  HTTP Client      │
+    │  JS Nativo (SPA)  │                 │  Raspberry Pi 4   │
+    │  Fetch API        │                 │  Nodo Híbrido     │
+    │  CSS Grid/Flex    │                 │  Descentralizado  │
+    └───────────────────┘                 │  Red Local Propia │
                                           └───────────────────┘
 ```
  
@@ -92,7 +93,7 @@
 | **Base de Datos** | MariaDB | Esquema 3FN + triggers automáticos de stock |
 | **Frontend** | JS Nativo + CSS3 | Fetch API, Grid/Flexbox, Mobile First |
 | **Servidor Web** | Apache 2.4 | Corriendo nativo en Raspberry Pi 4 |
-| **Hardware IoT** | Raspberry Pi Pico W | Cliente HTTP para notificaciones físicas |
+| **Infraestructura** | Raspberry Pi 4 | Servidor autónomo de bajo costo, sin cloud |
 | **Seguridad** | BCRYPT + Sessions PHP | `password_hash()`, validación server-side |
 | **Integración** | SOREDI / Blink Galaxy | Activos STL Web3-ready |
  
@@ -113,16 +114,19 @@ Producto digital ──▶  Validar licencia ──▶  Sin envío (₀)  ──
 - Sin recarga de página: toda la lógica del carrito vía Fetch API.
 ---
  
-### 🔔 Alertas IoT — Raspberry Pi Pico W
+### 🖥️ Servidor Autónomo — Raspberry Pi 4
  
-Cuando un pedido nuevo se registra en el backend PHP, la Raspberry Pi Pico W reacciona **físicamente**:
+El verdadero Factor WOW de PrintForge: un e-commerce complejo corriendo al 100% sobre una placa de bajo costo, sin depender de AWS, Azure ni ningún proveedor cloud:
  
 ```
-Backend PHP ──▶ Nuevo pedido en BD ──▶ HTTP POST al Pico W ──▶ Indicador físico activo
+Raspberry Pi 4  ──▶  Apache 2.4  ──▶  PHP 8  ──▶  MariaDB  ──▶  Plataforma completa
+     ARM         └──────────────────────────────────────────┘  Sin latencia cloud
 ```
  
-Esto simula una cadena de notificación real de producción, llevando el proyecto más allá de lo puramente web.
- 
+- **Stack completo en ARM:** Apache, PHP 8 y MariaDB corriendo nativamente sobre arquitectura ARM de bajo consumo.
+- **Nodo híbrido descentralizado:** el servidor vive en la red local, accesible para todos los dispositivos conectados sin intermediarios.
+- **Soberanía de datos total:** la base de datos, los archivos STL y la lógica de negocio residen en hardware propio, no en servidores de terceros.
+- **Rendimiento optimizado para ARM:** decisión deliberada de PHP puro sin frameworks para minimizar el overhead y maximizar la velocidad de respuesta en hardware embebido.
 ---
  
 ### 🌌 Integración SOREDI / Web3 — Blink Galaxy Forge
@@ -217,24 +221,31 @@ define('DB_PASS', 'tu_password');
 🌐 http://192.168.10.3/printforge
 ```
  
-> Disponible para cualquier dispositivo en la misma red local que la Raspberry Pi.
+> Disponible para cualquier dispositivo en la misma red local que la Raspberry Pi 4. Sin dependencias externas. Sin cloud. Cero costo de infraestructura.
  
 ---
  
-## 📡 Integración IoT — Raspberry Pi Pico W
+## 🖥️ Servidor Autónomo — Raspberry Pi 4
  
-La Raspberry Pi Pico W está programada en MicroPython como **cliente HTTP activo**:
+La Raspberry Pi 4 opera como un **nodo híbrido descentralizado de producción**, consolidando todo el stack en un único dispositivo ARM de bajo consumo:
  
-```python
-# Flujo simplificado del cliente IoT
-while True:
-    response = urequests.get("http://192.168.10.3/api_pedidos_nuevo")
-    if response.json()["nuevo_pedido"]:
-        activar_indicador_fisico()   # LED, buzzer, etc.
-    time.sleep(POLLING_INTERVAL)
+```
+┌──────────────────────────────────────────────────┐
+│           🖥️  RASPBERRY PI 4 — NODO CENTRAL       │
+│                                                  │
+│  ┌─────────────┐  ┌──────────┐  ┌────────────┐  │
+│  │  Apache 2.4 │  │  PHP 8.0 │  │  MariaDB   │  │
+│  │  Web Server │  │  Backend │  │  Database  │  │
+│  └─────────────┘  └──────────┘  └────────────┘  │
+│                                                  │
+│  💡 Sin AWS   💡 Sin Azure   💡 Sin Heroku        │
+│  ✅ Soberanía total de datos y lógica            │
+│  ✅ Latencia mínima — todo en red local          │
+│  ✅ Costo operativo: prácticamente cero          │
+└──────────────────────────────────────────────────┘
 ```
  
-Este componente eleva el proyecto de una aplicación web a un **sistema físico-digital integrado**, demostrando capacidades de IoT industrial en un entorno de hackathon.
+Este componente eleva el proyecto de una aplicación web convencional a un **sistema de infraestructura soberana**, demostrando que es posible desplegar un e-commerce de producción completo sobre hardware de bajo costo sin comprometer rendimiento ni seguridad.
  
 ---
  
@@ -266,7 +277,7 @@ Este componente eleva el proyecto de una aplicación web a un **sistema físico-
 | 🔧 | **Axel Vallejo** | Arquitecto Backend & Seguridad | Lógica híbrida PHP, validaciones, fallbacks, BCRYPT, sesiones seguras |
 | 🗄️ | **Francisco Maldonado** | DBA | Diseño en 3ra Forma Normal, triggers de stock, integridad referencial |
 | 🎨 | **Ernesto Rivera** | Lead Frontend & UI/UX | Fetch API, diseño responsivo Mobile First, CSS Grid/Flexbox |
-| 📡 | **Jesús Lizárraga** | Ingeniero IoT & Redes | Setup Raspberry Pi 4 como servidor, programación Pico W cliente HTTP |
+| 📡 | **Jesús Lizárraga** | Ingeniero de Infraestructura & Redes | Setup y hardening de Raspberry Pi 4 como servidor web autónomo, configuración de red local, despliegue del nodo híbrido descentralizado |
 | ✅ | **Angeles Gonzalez** | QA & Project Manager | Testing E2E, documentación técnica, gestión de entregables |
  
 ---
@@ -276,12 +287,13 @@ Este componente eleva el proyecto de una aplicación web a un **sistema físico-
 ```
 ✅  Arquitectura real desplegada en hardware físico (no cloud)
 ✅  Sistema de doble canal (físico + digital) en un solo carrito
-✅  Integración IoT funcional con Raspberry Pi Pico W
+✅  Raspberry Pi 4 como servidor web autónomo y nodo descentralizado
 ✅  Bridge entre maker hardware y ecosistema Web3 / SOREDI
 ✅  PHP 8 puro: cero dependencias externas, cero overhead
 ✅  BD normalizada en 3FN con triggers automáticos de stock
 ✅  Seguridad implementada: BCRYPT + sessions + validaciones
 ✅  Frontend 100% responsivo: Mobile First, sin librerías CSS
+✅  Soberanía total: sin AWS, sin Azure, sin costos de infraestructura cloud
 ```
  
 ---

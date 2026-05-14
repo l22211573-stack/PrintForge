@@ -1,8 +1,6 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
 -- Versión del servidor:         12.2.2-MariaDB - MariaDB Server
--- SO del servidor:              Win64
--- HeidiSQL Versión:             12.14.0.7165
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -25,11 +23,11 @@ CREATE TABLE IF NOT EXISTS `detalle_pedido` (
   PRIMARY KEY (`id`),
   KEY `pedido_id` (`pedido_id`),
   KEY `producto_id` (`producto_id`),
-  CONSTRAINT `1` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `2` FOREIGN KEY (`producto_id`) REFERENCES `productos` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  CONSTRAINT `fk_detalle_pedido` FOREIGN KEY (`pedido_id`) REFERENCES `pedidos` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `fk_detalle_producto` FOREIGN KEY (`producto_id`) REFERENCES `productos` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla marketplace.detalle_pedido: ~16 rows (aproximadamente)
+-- Volcando datos para la tabla marketplace.detalle_pedido
 INSERT INTO `detalle_pedido` (`id`, `pedido_id`, `producto_id`, `cantidad`, `precio_unitario`) VALUES
 	(1, 1, 1, 1, 4599.00),
 	(2, 1, 1, 1, 4599.00),
@@ -59,10 +57,10 @@ CREATE TABLE IF NOT EXISTS `pedidos` (
   `fecha_pedido` timestamp NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `usuario_id` (`usuario_id`),
-  CONSTRAINT `1` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  CONSTRAINT `fk_pedido_usuario` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla marketplace.pedidos: ~16 rows (aproximadamente)
+-- Volcando datos para la tabla marketplace.pedidos
 INSERT INTO `pedidos` (`id`, `usuario_id`, `total`, `metodo_envio`, `estado`, `fecha_pedido`) VALUES
 	(1, 1, 4599.00, 'estandar', 'enviado', '2026-05-13 23:20:43'),
 	(2, 1, 4599.00, 'estandar', 'pendiente', '2026-05-13 23:21:01'),
@@ -95,10 +93,11 @@ CREATE TABLE IF NOT EXISTS `productos` (
   `formato_digital` varchar(50) DEFAULT NULL,
   `fecha_creacion` timestamp NULL DEFAULT current_timestamp(),
   `activo` tinyint(1) DEFAULT 1,
+  `imagen_url` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla marketplace.productos: ~7 rows (aproximadamente)
+-- Volcando datos para la tabla marketplace.productos
 INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `precio`, `stock`, `categoria`, `imagen`, `tipo`, `formato_digital`, `fecha_creacion`, `activo`, `imagen_url`) VALUES
 	(1, 'Creality Ender 3 V3 SE', 'La puerta de entrada perfecta al mundo 3D. Nivelación automática.', 4599.00, 13, 'Impresora FDM', 'https://via.placeholder.com/400x400.png?text=Ender+3', 'fisico', NULL, '2026-05-13 22:33:09', 1, 'img/ender_3_v3_se.jpeg'),
 	(2, 'Anycubic Photon Mono M5s', 'Resolución 12K para detalles que desafían la vista.', 12850.00, 8, 'Impresora Resina', 'https://via.placeholder.com/400x400.png?text=Photon+Mono', 'fisico', NULL, '2026-05-13 22:33:09', 0, 'img/photon_mono_m5s.jpeg'),
@@ -121,13 +120,12 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Volcando datos para la tabla marketplace.usuarios: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla marketplace.usuarios
 INSERT INTO `usuarios` (`id`, `nombre`, `email`, `password`, `rol`, `fecha_registro`) VALUES
 	(1, 'Admin Base', 'admin@test.com', '$2y$10$axhvV6eULz7brT7qfE/Bi.M4DMlPVKlKx8SrfsMD2VorbVq7Yi8lC', 'admin', '2026-05-13 22:33:09');
 
 -- Volcando estructura para vista marketplace.vista_historial_pedidos
 DROP VIEW IF EXISTS `vista_historial_pedidos`;
--- Creando tabla temporal para superar errores de dependencia de VIEW
 CREATE TABLE `vista_historial_pedidos` (
 	`folio` INT(11) NOT NULL,
 	`cliente` VARCHAR(1) NOT NULL COLLATE 'utf8mb4_unicode_ci',
@@ -164,8 +162,7 @@ CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vista_historial_pedidos` A
 FROM pedidos p
 INNER JOIN usuarios u ON p.usuario_id = u.id
 INNER JOIN detalle_pedido dp ON p.id = dp.pedido_id
-INNER JOIN productos pr ON dp.producto_id = pr.id 
-;
+INNER JOIN productos pr ON dp.producto_id = pr.id ;
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
